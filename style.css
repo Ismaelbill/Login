@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition-duration: .5s;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.parent {
+    min-height: 100vh;
+    background-color: #23242b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent .formVal {
+    width: 360px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    padding: 3px;
+    border-radius: 5px;
+    z-index: 2;
+
+}
+
+.parent .formVal::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg,transparent, #45f3ff , #45f3ff);
+    top: -50%;
+    left: -50%;
+    z-index: 1;
+    transform-origin: right bottom;
+    animation-name: anime;
+    animation-timing-function: linear;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+.parent .formVal::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg,transparent, #45f3ff, #45f3ff);
+    bottom: -50%;
+    right: -50%;
+    z-index: 1;
+    transform-origin: top left;
+    animation-name: anime;
+    animation-timing-function: linear;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    
+}
+
+
+@keyframes anime {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.parent .formVal .form {
+    position: relative;
+    z-index: 5;
+    background-color: #1b1a1b;
+    height: 100%;
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent .formVal .form form h1 {
+    color: #45f3ff;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.parent .formVal .form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+}
+
+.parent .formVal .form form .textBox,
+.parent .formVal .form form .passBox {
+    position: relative;
+    border-bottom: #45f3ff 1px solid;
+}
+
+
+.parent .formVal .form form .passBox button {
+    position: absolute;
+    right: 5px;
+    color: white;
+    color: #45f3ff;
+    
+    top: 15px;
+    padding: 0.3rem;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+}
+
+.parent .formVal .form form .input {
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #45f3ff;
+    
+}
+
+
+
+.parent .formVal .form form .input:focus ~ span, 
+    .parent .formVal .form form .input:valid ~ span {
+    color: #45f3ff;
+    transform: translateY(-20px);
+    font-size: 0.8rem;
+}
+
+
+
+
+.parent .formVal .form form span {
+    position: absolute;
+    left: 0;
+    padding: 1rem;
+    color: #8f8f8f;
+    pointer-events: none;
+}
+
+.parent .formVal .form form [name="submit"] {
+    width: 30%;
+    background-color: #45f3ff;
+    border: 1px solid #45f3ff;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.parent .formVal .form form [name="submit"]:hover {
+    color: #45f3ff;
+    background-color: #1b1a1b;
+    border: 1px solid #45f3ff;
+}
